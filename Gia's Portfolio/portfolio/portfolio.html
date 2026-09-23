@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kesia Joy G. Aquino | Portfolio</title>
+
+    <style>
+        /* =========================
+           BASIC SETTINGS
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #101c1b;
+            color: #f4f0e8;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(16, 28, 27, 0.96);
+            border-bottom: 1px solid #29413d;
+        }
+
+        nav {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: #d9a54e;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #c0cbc7;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #d9a54e;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .small-title {
+            color: #d9a54e;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 76px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #d9a54e;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #b8c4c0;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 18px;
+            border: 1px solid #3a504b;
+            border-radius: 8px;
+            text-decoration: none;
+            background: #172724;
+        }
+
+        .button:hover {
+            border-color: #d9a54e;
+            color: #d9a54e;
+        }
+
+        .button.primary {
+            background: #d9a54e;
+            color: #101c1b;
+            border-color: #d9a54e;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
+
+        section {
+            padding: 80px 0;
+            border-top: 1px solid #29413d;
+        }
+
+        .section-label {
+            color: #d9a54e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .section-text {
+            max-width: 750px;
+            color: #b8c4c0;
+            font-size: 16px;
+        }
+
+        .section-text p {
+            margin-bottom: 16px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid #3a504b;
+            background: #172724;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #172724;
+            border: 1px solid #29413d;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+            color: #d9a54e;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill {
+            padding: 7px 11px;
+            border-radius: 20px;
+            background: #20332f;
+            color: #d8e0dd;
+            font-size: 13px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #172724;
+            border: 1px solid #29413d;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #d9a54e;
+            box-shadow: 
+            0 0 20px white;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+            background: #20332f;
+        }
+
+        .project-content {
+            padding: 22px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            color: #b8c4c0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 18px;
+        }
+
+        .tags span {
+            color: #d9a54e;
+            font-size: 12px;
+        }
+
+        .project-link {
+            color: #f4f0e8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            color: #d9a54e;
+        }
+
+        /* =========================
+           EXPERIENCE + EDUCATION
+        ========================== */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .info-card {
+            background: #172724;
+            border: 1px solid #29413d;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            color: #d9a54e;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item {
+            border-left: 2px solid #3a504b;
+            padding: 0 0 25px 18px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .date {
+            color: #d9a54e;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item h4 {
+            margin-bottom: 3px;
+        }
+
+        .place {
+            color: #c0cbc7;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .timeline-item p:last-child {
+            color: #aebbb7;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+            background: #172724;
+            border: 1px solid #29413d;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: #b8c4c0;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .contact-links a {
+            color: #d9a54e;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #82918c;
+            font-size: 13px;
+        }
+
+        /* =========================
+           PHONE / SMALL SCREENS
+        ========================== */
+
+        @media (max-width: 800px) {
+            nav {
+                padding: 12px 0;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 70px 0;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-photo {
+                max-width: 220px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            section h2 {
+                font-size: 30px;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .contact-box {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <div class="container">
+            <nav>
+                <a class="logo" href="#home">Gia.</a>
+
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- =========================
+             HOME
+        ========================== -->
+
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="small-title">BSIT Student • Web Development</p>
+
+                    <h1>
+                        Hi, I'm <span>Maria Gianelli.</span>
+                    </h1>
+
+                    <p>
+                        I'm an Information Technology student learning web development,
+                        programming, and digital design while building projects one step
+                        at a time.
+                    </p>
+
+                    <div class="buttons">
+                        <a class="button primary" href="#projects">View My Projects</a>
+                        <a class="button" href="mailto:kesiajoyaquino@gmail.com">Contact Me</a>
+                        <a class="button" href="https://github.com/ThatFlyingFishy" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="about">
+            <div class="container">
+                <p class="section-label">01 • About</p>
+                <h2>A little about me</h2>
+
+                <div class="about-grid">
+                    <img
+                        class="profile-photo"
+                        src="images/profile.jpg"
+                        alt="Maria Gianelli A. Panganiban"
+                    >
+
+                    <div class="section-text">
+                        <p>
+                            Hi, I am <strong>Maria Gianelli A. Panganiban</strong>, a BSIT student who is interested in web development and digital design.
+
+                        <p>
+                           I'm currently learning different programming languages and imptoving my skills through school projects and hands-on practice while enjoying the process of exploring new ideas and making my project better.
+
+                        <p>
+                            I'm still learning, but I enjoy figuring things out, trying
+                            new ideas, and rebuilding projects until they work.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
+        <section id="skills">
+            <div class="container">
+                <p class="section-label">02 • Skills</p>
+                <h2>What I work with</h2>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Programming</h3>
+
+                        <div class="skill-list">
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">C++</span>
+                            <span class="skill">C#</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Tools</h3>
+
+                        <div class="skill-list">
+                            <span class="skill">Visual Studio Code</span>
+                            <span class="skill">Visual Studio</span>
+                            <span class="skill">GitHub</span>
+                            <span class="skill">Canva</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section id="projects">
+            <div class="container">
+                <p class="section-label">03 • Projects</p>
+                <h2>Things I've built</h2>
+
+                <div class="project-grid">
+
+                    <article class="project-card">
+                        <img
+                            src="images/portfolio.png"
+                            alt="portfolio website"
+                        >
+
+                        <div class="project-content">
+                            <h3>Personal Portfolip</h3>
+
+                            <p>
+                               A personal website that showcases projects, skills, experience, and achievement.
+                            </p>
+
+                            <div class="tags">
+                                <span>HTML</span><span>CSS</span>
+                            </div>
+
+                            <a class="project-link" href="portfolio/index.html">View Project ↗</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             EXPERIENCE + EDUCATION
+        ========================== -->
+
+        <section id="experience">
+            <div class="container">
+                <p class="section-label">04 • Background</p>
+                <h2>Experience & Education</h2>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+                        <h3>Experience</h3>
+
+                        <div class="timeline-item">
+                            <p class="date">July 2026</p>
+                            <h4>Intern</h4>
+                            <p class="place">Maypangdan Elementary School</p>
+                            <p>
+                                I recorded the scores using Excel, organized the modules, and edited PowerPoint Presentation using Canva.
+
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Education</h3>
+
+                        <div class="timeline-item">
+                            <p class="date">June 2025 - Present</p>
+                            <h4>BS in Information Technology</h4>
+                            <p class="place">Eastern Samar State University</p>
+                            <p>
+                                Currently developing skills in programming and digital design.
+                            </p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <p class="date">June 2019 - 2025</p>
+                            <h4>Senior High School Graduate</h4>
+                            <p class="place"><span title="'PECMNHS'">Pedro E. Candido Memorial National High School</span></p>
+                            <p>
+                                Graduated with Honor.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section id="contact">
+            <div class="container">
+                <div class="contact-box">
+                    <p class="section-label">05 • Contact</p>
+
+                    <h2>Let's connect!</h2>
+
+                    <p>
+                        I'm always open to new projects and new opportunities where I can gain experience learn new skills, and continue growing.
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="mailto:kesiajoyaquino@gmail.com">
+                            Email
+                        </a>
+
+                        <a
+                            href="https://github.com/ThatFlyingFishy"
+                            target="_blank"
+                        >
+                            GitHub
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/kesia-joy-aquino-3997bb408/"
+                            target="_blank"
+                        >
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Maria Gianelli A. Panganiban, All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
